@@ -20,6 +20,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
+"""Polygon.io历史数据服务。"""
 
 from .polygon_datafeed import PolygonDatafeed as Datafeed
 

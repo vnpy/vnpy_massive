@@ -1,3 +1,5 @@
+"""Polygon.io历史数据服务实现。"""
+
 from datetime import datetime
 from typing import Any
 from collections.abc import Iterator, Callable
@@ -23,7 +25,7 @@ class PolygonDatafeed(BaseDatafeed):
     """Polygon.io数据服务接口"""
 
     def __init__(self) -> None:
-        """"""
+        """读取API密钥，并标记尚未初始化。"""
         self.api_key: str = SETTINGS["datafeed.password"]
 
         self.client: RESTClient
