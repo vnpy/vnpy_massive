@@ -1,4 +1,4 @@
-# VeighNa框架的Polygon.io数据服务接口
+# VeighNa 框架的 Massive 数据服务接口
 
 <p align="center">
   <img src ="https://vnpy.oss-cn-shanghai.aliyuncs.com/vnpy-logo.png"/>
@@ -13,11 +13,11 @@
 
 ## 说明
 
-基于Polygon.io的Python API开发，支持美股市场的K线数据
+基于 Massive REST API，使用 requests 直接调用，支持美股市场的 K 线数据（股票、指数、期权）。
 
 注意：
- - 需要购买相应的数据服务权限。
- - 期权合约历史数据查询的时候symbol需要去掉“O：”前缀。
+- 需要购买相应的数据服务权限。
+- 指数、期权的 ticker 前缀（如 I:、O:）由 datafeed 自动补全。指数自动补 `I:` 的代码只有 SPX、NDX、RUT、DJX、VIX。
 
 
 ## 安装
@@ -27,7 +27,7 @@
 直接使用pip命令：
 
 ```
-pip install vnpy_polygon
+pip install vnpy_massive
 ```
 
 
@@ -40,9 +40,9 @@ pip install .
 
 ## 使用
 
-在VeighNa中使用Polygon.io时，需要在全局配置中填写以下字段信息：
+在 VeighNa 中使用 Massive 时，需要在全局配置中填写以下字段信息：
 
-|名称|含义|必填|举例|
-|---------|----|---|---|
-|datafeed.name|名称|是|polygon|
-|datafeed.password|密码|是|(API Key)|
+| 名称 | 含义 | 必填 | 举例 |
+|------|------|------|------|
+| datafeed.name | 名称 | 是 | massive |
+| datafeed.password | 密码 | 是 | (API Key) |

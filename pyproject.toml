@@ -1,7 +1,7 @@
 [project]
-name = "vnpy_polygon"
+name = "vnpy_massive"
 dynamic = ["version"]
-description = "Polygon.io datafeed for VeighNa quant trading framework."
+description = "Massive REST API datafeed for VeighNa quant trading framework."
 readme = "README.md"
 license = {text = "MIT"}
 authors = [{name = "Xiaoyou Chen", email = "xiaoyou.chen@mail.vnpy.com"}]
@@ -22,7 +22,7 @@ classifiers = [
 ]
 requires-python = ">=3.10"
 dependencies = [
-    "polygon-api-client"
+    "requests",
 ]
 keywords = ["quant", "quantitative", "investment", "trading", "algotrading"]
 
@@ -38,15 +38,15 @@ requires = ["hatchling>=1.27.0"]
 build-backend = "hatchling.build"
 
 [tool.hatch.version]
-path = "vnpy_polygon/__init__.py"
+path = "vnpy_massive/__init__.py"
 pattern = "__version__ = ['\"](?P<version>[^'\"]+)['\"]"
 
 [tool.hatch.build.targets.wheel]
-packages = ["vnpy_polygon"]
+packages = ["vnpy_massive"]
 include-package-data = true
 
 [tool.hatch.build.targets.sdist]
-include = ["vnpy_polygon*"] 
+include = ["vnpy_massive*"] 
 
 [tool.ruff]
 target-version = "py310"
