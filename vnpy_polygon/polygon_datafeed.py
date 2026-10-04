@@ -1,7 +1,7 @@
 """Polygon.io历史数据服务实现。"""
 
 from datetime import datetime
-from typing import Any
+from typing import Any, cast
 from collections.abc import Iterator, Callable
 
 from polygon import RESTClient
@@ -60,9 +60,9 @@ class PolygonDatafeed(BaseDatafeed):
 
         symbol: str = req.symbol
         exchange: Exchange = req.exchange
-        interval: Interval = req.interval
+        interval: Interval = cast(Interval, req.interval)
         start: datetime = req.start
-        end: datetime = req.end
+        end: datetime = cast(datetime, req.end)
 
         polygon_interval: str | None = INTERVAL_VT2POLYGON.get(interval)
         if not polygon_interval:
