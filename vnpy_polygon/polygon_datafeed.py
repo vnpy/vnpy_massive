@@ -14,7 +14,7 @@ from vnpy.trader.setting import SETTINGS
 from vnpy.trader.database import DB_TZ
 
 
-INTERVAL_VT2POLYGON = {
+INTERVAL_VT2POLYGON: dict[Interval, str] = {
     Interval.MINUTE: "minute",
     Interval.HOUR: "hour",
     Interval.DAILY: "day",
@@ -40,6 +40,7 @@ class PolygonDatafeed(BaseDatafeed):
             output("Polygon.io数据服务初始化失败：API密钥为空！")
             return False
 
+        e: Exception
         try:
             self.client = RESTClient(self.api_key)
 
@@ -83,6 +84,7 @@ class PolygonDatafeed(BaseDatafeed):
         )
 
         bars: list[BarData] = []
+        agg: Agg
         for agg in aggs:
             # Polygon时间戳是毫秒，转换为datetime
             dt: datetime = datetime.fromtimestamp(agg.timestamp / 1000)
